@@ -22,7 +22,7 @@ public class CarController {
     CarRepository carRepository;
 
     @Bean
-    public Function<Integer, Car> getCarByIdFunction(){
+    public Function<Integer, Car> getCarById(){
         return value -> {
             System.out.println("Received request for car id: "+value);
             return carRepository.getCars().stream().filter( car -> car.getId() == value).findAny().orElse(null);
